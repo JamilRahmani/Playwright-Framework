@@ -3,12 +3,32 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "lint:fix": "eslint \"{playwright,tests}/**/*.ts\" --fix",
+    "postinstall": "playwright install",
+    "test": "playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.41.2",
-    "@types/node": "^20.11.19"
+    "@axe-core/playwright": "4.8.2",
+    "@playwright/test": "1.40.1",
+    "@types/lodash.kebabcase": "4.1.9",
+    "@types/lodash.merge": "4.6.9",
+    "@types/node": "18",
+    "@typescript-eslint/eslint-plugin": "6.13.2",
+    "@typescript-eslint/parser": "6.13.2",
+    "date-fns": "2.30.0",
+    "date-fns-tz": "2.0.0",
+    "dotenv": "16.3.1",
+    "eslint": "8.55.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.0.1",
+    "lodash.kebabcase": "4.1.1",
+    "lodash.merge": "4.6.2",
+    "lorem-ipsum": "2.0.8",
+    "prettier": "3.1.0"
   }
 }
+ 
