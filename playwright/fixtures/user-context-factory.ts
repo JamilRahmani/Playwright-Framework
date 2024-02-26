@@ -1,6 +1,6 @@
 import { expect, Browser, BrowserContext, Page } from '@playwright/test'
  
-type UserKeys = 'admin' | 'employee' | 'sales'
+type UserKeys = 'admin01' | 'employee01' | 'sales01'
 type UserProps = {
   key: UserKeys
   firstName: string
@@ -12,9 +12,7 @@ export class User {
   private homeUrlString: string
  
   constructor(private user: UserProps) {
-    this.homeUrlString = user.key.startsWith('orgAdmin')
-      ? new URL('/organizations', process.env.MANAGE_APP_URL).toString()
-      : new URL(this.user.homePath, process.env.CORE_APP_URL).toString()
+    this.homeUrlString = new URL(this.user.homePath, process.env.BETA_URL).toString()
   }
  
   public get key() {
@@ -94,8 +92,8 @@ export class UserContextFactory {
     const UserCredentialsFile = await import('../../resources/.credentials.json')
  
     // TODO: Make more dynamic
-    await this.addUserAndGoToHomepage(new User(UserCredentialsFile.admin[0] as UserProps))
-    await this.addUserAndGoToHomepage(new User(UserCredentialsFile.employee[0] as UserProps))
+    await this.addUserAndGoToHomepage(new User(UserCredentialsFile.admins[0] as UserProps))
+    await this.addUserAndGoToHomepage(new User(UserCredentialsFile.employees[0] as UserProps))
     await this.addUserAndGoToHomepage(new User(UserCredentialsFile.sales[0] as UserProps))
   }
  
