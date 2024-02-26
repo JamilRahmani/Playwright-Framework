@@ -1,0 +1,1 @@
+export { GlobalLoginPage } from './global.login'
